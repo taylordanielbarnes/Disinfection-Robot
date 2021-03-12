@@ -1,4 +1,9 @@
 <launch>
-  <include file="$(find ydlidar_ros)/launch/lidar.launch" />
+  <include file="$(find ydlidar_ros)/launch/X4.launch" />
+  <node type="laser_scan_assembler" pkg="laser_assembler" name="my_assembler">
+    <remap from="scan" to="assemble_scan"/>
+    <param name="max_scans" type="int" value="400" />
+    <param name="fixed_frame" type="string" value="base_link" />
+  </node>
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ydlidar_ros)/launch/lidar.rviz" />
 </launch>
