@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     //server initialization
     ros::init(argc, argv, "uvc_server");
     ros::NodeHandle node_handle;
-    ros::ServiceServer service = node_handle.advertiseService("set_lamp", SetLamp);
+    ros::ServiceServer service = node_handle.advertiseService("set_lamp", SetLamp); //change name to something unique?
 
     //loop
     while (ros::ok()) {
